@@ -1,4 +1,4 @@
-package com.charlesgodoy.earhebcg;
+package com.charlesgodoy.consumer_app_mock_up_example;
 
 import android.content.Context;
 

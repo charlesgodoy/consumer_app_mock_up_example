@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EARHEBCG"
+        android:theme="@style/Theme.consumer_app_mock_up_example"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"

@@ -1,20 +1,24 @@
-package com.charlesgodoy.earhebcg;
+package com.charlesgodoy.consumer_app_mock_up_example;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
-import com.charlesgodoy.earhebcg.ui.AccountFragment;
-import com.charlesgodoy.earhebcg.ui.CouponsFragment;
-import com.charlesgodoy.earhebcg.ui.HomeFragment;
-import com.charlesgodoy.earhebcg.ui.OrdersFragment;
-import com.charlesgodoy.earhebcg.ui.ShopFragment;
+import com.charlesgodoy.consumer_app_mock_up_example.ui.AccountFragment;
+import com.charlesgodoy.consumer_app_mock_up_example.ui.CouponsFragment;
+import com.charlesgodoy.consumer_app_mock_up_example.ui.HomeFragment;
+import com.charlesgodoy.consumer_app_mock_up_example.ui.OrdersFragment;
+import com.charlesgodoy.consumer_app_mock_up_example.ui.ShopFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
+
+    FloatingActionButton fab;
 
     BottomNavigationView bottomNavigationView;
     HomeFragment homeFragment = new HomeFragment();
@@ -29,12 +33,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        fab = findViewById(R.id.btn_fab);
 
         // Selects the Account icon to be highlighted on activity start
         bottomNavigationView.setSelectedItemId(R.id.account);
 
+        // Put code here when FAB is clicked
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "You clicked FAB", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Starts app at account fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.container, accountFragment).commit();
 
+        // Bottom Navigation clicks
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
